@@ -20,6 +20,6 @@ pickReply = ["Wtf is this shit",
 
 def get_short_result(keyword):
     r = requests.get(serviceurl, params = {'appid': TOKEN, 'i': keyword})
-    if r.text == "Wolfram|Alpha did not understand your input":
+    if r.text == "Wolfram|Alpha did not understand your input" or r.text == "No short answer available":
         return random.choice(pickReply)    
     return(r.text)
